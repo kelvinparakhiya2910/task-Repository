@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fibonaci number</title>
+
+</head>
+
+<body>
+    <div id="heading">
+        <h2>Fibonaci Number</h2>
+    </div>
+
+    <button id="myBtn">Add</button>
+
+    <div id="numberDiv">
+        <h1 id="number">1</h1>
+    </div>
+
+
+</body>
+
+<script>
+    let myBtn = document.getElementById("myBtn").addEventListener("click", fibonaciNumber);
+
+    let idcount = 0
+    let lengthCount = 1
+    let trackH1 = "number";
+    function fibonaciNumber() {
+        let element = document.getElementById(trackH1);
+        element.textContent = element.textContent + " > " + call();
+        lengthCount++
+        console.log(lengthCount);
+        if (lengthCount === 6) {
+            lengthCount = 0;
+            idcount++;
+            let create = document.createElement("h1");
+            let set = create.setAttribute("id", `number${idcount}`);
+            trackH1 = `number${idcount}`;
+            console.log(trackH1);
+            let div = document.getElementById("numberDiv");
+            div.appendChild(create);
+            document.body.appendChild(div);
+        }
+    }
+
+    let arr = [0, 1];
+    let couint = 1;
+
+    function sumOfNumber() {
+        let sum = arr[couint] + arr[couint - 1];
+        arr.push(sum);
+        couint++;
+        return sum
+    }
+
+    function call() {
+        let fcall = sumOfNumber();
+        return fcall
+    }
+</script>
+
+</html>
